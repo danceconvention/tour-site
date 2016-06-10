@@ -16,6 +16,7 @@
                  [yogthos/config "0.8"]
                  [org.clojure/clojurescript "1.9.36"
                   :scope "provided"]
+                 [cljsjs/jquery "2.2.2-0"]
                  [secretary "1.2.3"]
                  [venantius/accountant "0.1.7"
                   :exclusions [org.clojure/tools.reader]]]

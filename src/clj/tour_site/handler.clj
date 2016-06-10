@@ -17,14 +17,20 @@
    [:meta {:charset "utf-8"}]
    [:meta {:name "viewport"
            :content "width=device-width, initial-scale=1"}]
-   (include-css (if (env :dev) "/css/site.css" "/css/site.min.css"))])
+   (include-css
+     (if (env :dev) "/css/site.css" "/css/site.min.css")
+     (if (env :dev) "/bootstrap-3.3.6/css/bootstrap.min.css" "/bootstrap-3.3.6/css/bootstrap.css"))
+   ])
 
 (def loading-page
   (html5
     (head)
-    [:body {:class "body-container"}
+    [:body {:style "padding-top: 80px;"}
      mount-target
-     (include-js "/js/app.js")]))
+     (include-js "/js/app.js")
+     (include-js
+       (if (env :dev) "/bootstrap-3.3.6/js/bootstrap.min.js" "/bootstrap-3.3.6/js/bootstrap.js"))
+     ]))
 
 
 (defroutes routes
