@@ -17,7 +17,7 @@
      [:div.navbar-header
       [:a.navbar-brand {:href "#"}
        [:nobr
-       [:img {:src "https://danceconvention.net/eventdirector/assets/ctx/1747d7d/images/dcnet_logo_header.png" :border 0}]
+       [:img {:src "/img/dcnet_logo_header.png" :border 0}]
        (gstring/unescapeEntities "&nbsp;")
        [:strong "danceConvention.net"]]]
       ]
@@ -33,8 +33,8 @@
 
 (defn home-page []
   (site-layout [:div.row
-                [:div.col-md-8 [:h2 "Top 5"] [top5/leaderboard]]
-                [:div.col-md-4 [:h2 "Search"]]
+                [:div.col-md-6 [:h2 "Top 5"] [top5/leaderboard 10 5]]
+                [:div.col-md-6 [:h2 "Search"]]
                 ]))
 
 (defn about-page []
