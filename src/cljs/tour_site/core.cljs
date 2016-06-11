@@ -5,7 +5,9 @@
               [accountant.core :as accountant]
               [goog.string :as gstring]
               [cljsjs.jquery]
-              [tour-site.top5 :as top5]))
+              [tour-site.top5 :as top5]
+              [tour-site.search :as search]
+              [tour-site.dancerinfo :as dancerinfo]))
 
 ;; -------------------------
 ;; Views
@@ -34,8 +36,11 @@
 (defn home-page []
   (site-layout [:div.row
                 [:div.col-md-6 [:h2 "Top 5"] [top5/leaderboard 10 5]]
-                [:div.col-md-6 [:h2 "Search"]]
+                [:div.col-md-6 [:h2 "Search"] [search/search-form]]
                 ]))
+
+(defn user-page []
+  (site-layout [dancerinfo/dancer-info (session/get :current-user)]))
 
 (defn about-page []
   (site-layout [:div [:h2 "About tour-site"]
@@ -52,6 +57,10 @@
 
 (secretary/defroute "/about" []
   (session/put! :current-page #'about-page))
+
+(secretary/defroute "/dancerinfo/:userid" [userid]
+  (session/put! :current-user (js/parseInt userid))
+  (session/put! :current-page #'user-page))
 
 ;; -------------------------
 ;; Initialize app

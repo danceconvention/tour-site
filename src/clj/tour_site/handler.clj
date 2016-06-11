@@ -35,6 +35,7 @@
 
 (defroutes routes
   (GET "/" [] loading-page)
+  (GET "/dancerinfo/:userid" [userid] loading-page)
   (GET "/about" [] loading-page)
   
   (resources "/")
