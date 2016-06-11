@@ -4,7 +4,8 @@
               [secretary.core :as secretary :include-macros true]
               [accountant.core :as accountant]
               [goog.string :as gstring]
-              [cljsjs.jquery]))
+              [cljsjs.jquery]
+              [tour-site.top5 :as top5]))
 
 ;; -------------------------
 ;; Views
@@ -31,8 +32,10 @@
 )
 
 (defn home-page []
-  (site-layout [:div [:h2 "Welcome to tour-site"]
-                [:div [:a {:href "/about"} "go to about page"]]]))
+  (site-layout [:div.row
+                [:div.col-md-8 [:h2 "Top 5"] [top5/leaderboard]]
+                [:div.col-md-4 [:h2 "Search"]]
+                ]))
 
 (defn about-page []
   (site-layout [:div [:h2 "About tour-site"]
