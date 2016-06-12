@@ -32,3 +32,30 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.typeahead-list {
+  width: 100%;
+  list-style-type: none;
+  padding: 3px 12px;
+  margin-top: 3px;
+  border: solid 1px grey;
+  border-radius: 3px;
+  position: absolute;
+  z-index: 2;
+  background-color: white;
+  overflow-y: scroll;
+  max-height: 300px;
+  font-size: 120%;
+}
+
+.typeahead-item {
+  padding: 5px;
+}
+
+li.highlighted
+{
+  padding: 3px;
+  border: 1px solid grey;
+  background-color: grey;
+  color: white;
+}

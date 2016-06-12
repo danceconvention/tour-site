@@ -1,9 +1,6 @@
 (ns tour-site.top5
-  (:require [reagent.core :as reagent :refer [atom]]
-            [ajax.core :refer [GET]]
-            [tour-site.appdb :as appdb]))
-
-(defn calculate-points [rank] (inc (- 10 rank)))
+  (:require [tour-site.appdb :as appdb]
+            [tour-site.points :refer [calculate-points]]))
 
 (defn leaderboard [maxrank size]
     (fn []

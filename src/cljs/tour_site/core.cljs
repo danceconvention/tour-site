@@ -17,7 +17,7 @@
    [:nav.navbar.navbar-inverse.navbar-fixed-top
     [:div.container
      [:div.navbar-header
-      [:a.navbar-brand {:href "#"}
+      [:a.navbar-brand {:href "https://danceconvention.net/"}
        [:nobr
        [:img {:src "/img/dcnet_logo_header.png" :border 0}]
        (gstring/unescapeEntities "&nbsp;")
@@ -25,9 +25,10 @@
       ]
      [:div#navbar.navbar-collapse.collapse
       [:ul.nav.navbar-nav.navbar-right
-       [:li [:a {:href "#"} "RawConnection Tour Logo"]]]]]]
+       [:li [:a {:href "/"} [:strong "Raw Connection Competition Tour"]]]]]]]
    [:div.container
-    [:div.jumbotron [:h1 "RawConnection Tour"]]
+    [:div
+     [:a.thumbnail {:href "/"} [:img {:src "/img/rawcontour.jpg" :border 0}]]]
     [:div.row
      [:div.col-md-12 contents]]]
   ]
