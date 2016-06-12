@@ -1,17 +1,18 @@
 (ns tour-site.search
-  (:require[secretary.core :as secretary :include-macros true]
-           [accountant.core :as accountant]
-           [reagent.core :as reagent :refer [atom]]
+  (:require [accountant.core :as accountant]
+            [reagent.core :as reagent :refer [atom]]
             [reagent-forms.core :refer [bind-fields init-field value-of]]
             [tour-site.appdb :refer [tourinfo-data]]))
 
 (defn- navigate-to [userid]
   (accountant/navigate! (str "/dancerinfo/" userid)))
 
+(defn- full-name [userinfo] (str (:firstName userinfo) " " (:lastName userinfo)))
+
 (defn user-lookup [text]
   (filter #(-> (:fullName %) (.toLowerCase %) (.indexOf text) (> -1))
           (sort-by :fullName (distinct (map #(into {} [[:userId    (:participantId %)]
-                                                       [:fullName  (str (:firstName %) " " (:lastName %))]]) (tourinfo-data 10))))))
+                                                       [:fullName  (full-name %)]]) (tourinfo-data 10))))))
 
 (defn search-form []
   (let [doc (reagent/atom {})]
