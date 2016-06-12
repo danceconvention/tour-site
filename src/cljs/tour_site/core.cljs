@@ -12,6 +12,12 @@
 ;; -------------------------
 ;; Views
 
+(defn- tour-info []
+  [:div.well.well-sm
+   [:p [:span "The Raw Con Comp Tour is designed to encourage and reward dancers of all levels to compete at Raw Con Events. The spirit of the Tour is to foster personal growth whilst competing in a friendly manner."]]
+   [:p [:span "Competitors will be rewarded points for all competitions (J&J, Strictly, Classic, Masters, Pro/Am) from 1st to 10th placings"]]
+   [:p [:span "The male and female with the most points at the end of the Tour will win a return flight to the USA and entry to Halloween Swing Thing on the last weekend in October 2017!"]]])
+
 (defn site-layout [contents]
   [:div
    [:nav.navbar.navbar-inverse.navbar-fixed-top
@@ -27,18 +33,27 @@
       [:ul.nav.navbar-nav.navbar-right
        [:li [:a.navbar-brand {:href "/"} [:strong "Raw Connection Competition Tour"]]]]]]]
    [:div.container
-    [:div
-     [:a.thumbnail {:href "/"} [:img {:src "/img/rawcontour.jpg" :border 0}]]]
+    [:div.row
+     [:div.col-md-6 [:a.thumbnail {:href "/"} [:img {:src "/img/rawcontour.jpg" :border 0}]]]
+     [:div.col-md-6 [tour-info]]]
     [:div.row
      [:div.col-md-12 contents]]
-    [:footer {:style {:margin-top "40px"}} [:p [:small "Powered by danceConvention.net" (gstring/unescapeEntities "&copy;") "Ilya Obshadko"]]]]
+    [:footer {:style {:margin-top "40px"}} [:p [:small "Powered by danceConvention.net " (gstring/unescapeEntities "&copy;") " 2013-2016 Ilya Obshadko"]]]]
   ]
 )
 
 (defn home-page []
   (site-layout [:div.row
-                [:div.col-md-6 [:h2 "Top 5"] [top5/leaderboard 10 5]]
-                [:div.col-md-6 [:h2 "Search"] [search/search-form]]
+                [:div.col-md-6 [:h2 [:small "Leaderboard"]] [top5/leaderboard 10 10]]
+                [:div.col-md-6
+                 [:h2 [:small "Competitor search"] ]
+                 [search/search-form]
+                 [:h2 [:small "Links"]]
+                 [:ul.list-unstyled {:style {:font-size "130%"}}
+                  [:li [:a {:href "https://www.facebook.com/groups/1142947162412936/" :target "_blank"} (gstring/unescapeEntities "&raquo;") " Read our Facebook group"]]
+                  [:li [:a {:href "http://www.rawconnection.com.au/" :target "_blank"} (gstring/unescapeEntities "&raquo;") " Visit Raw Connection website"]]
+                  [:li [:a {:href "https://danceconvention.net/eventdirector/en/eventpage/471220" :target "_blank"} (gstring/unescapeEntities "&raquo;") " Register for Swingtimate 2016"]]
+                  [:li [:a {:href "https://danceconvention.net/eventdirector/en/eventpage/541940" :target "_blank"} (gstring/unescapeEntities "&raquo;") " Register for Australasian 2017"]]]]
                 ]))
 
 (defn user-page []

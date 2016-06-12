@@ -16,7 +16,7 @@
 
 (defn search-form []
   (let [doc (reagent/atom {})]
-    [:div {:style {:margin-top "40px"}}
+    [:div {:style {:margin-top "20px"}}
       [bind-fields
        [:div {:field             :typeahead
               :id                :userlookup

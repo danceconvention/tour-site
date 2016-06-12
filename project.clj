@@ -19,8 +19,7 @@
                  [cljsjs/jquery "2.2.2-0"]
                  [cljs-ajax "0.5.5"]
                  [secretary "1.2.3"]
-                 [venantius/accountant "0.1.7"
-                  :exclusions [org.clojure/tools.reader]]]
+                 [venantius/accountant "0.1.7" :exclusions [org.clojure/tools.reader]]]
 
   :plugins [[lein-environ "1.0.2"]
             [lein-cljsbuild "1.1.1"]
@@ -73,16 +72,13 @@
    }
 
 
-  :figwheel
-  {:http-server-root "public"
+  :figwheel {
+   :http-server-root "public"
    :server-port 3449
    :nrepl-port 7002
-   :nrepl-middleware ["cemerick.piggieback/wrap-cljs-repl"
-                      ]
+   :nrepl-middleware ["cemerick.piggieback/wrap-cljs-repl"]
    :css-dirs ["resources/public/css"]
    :ring-handler tour-site.handler/app}
-
-
 
   :profiles {:dev {:repl-options {:init-ns tour-site.repl}
 
