@@ -31,7 +31,7 @@
      [:a.thumbnail {:href "/"} [:img {:src "/img/rawcontour.jpg" :border 0}]]]
     [:div.row
      [:div.col-md-12 contents]]
-    [:footer {:style {:margin-top "40px"}} [:p [:small "Powered by danceConvention.net (c) 2013-2016 Ilya Obshadko"]]]]
+    [:footer {:style {:margin-top "40px"}} [:p [:small "Powered by danceConvention.net" (gstring/unescapeEntities "&copy;") "Ilya Obshadko"]]]]
   ]
 )
 

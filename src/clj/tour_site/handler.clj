@@ -6,11 +6,9 @@
             [config.core :refer [env]]))
 
 (def mount-target
-  [:div#app
-      [:h3 "ClojureScript has not been compiled!"]
-      [:p "please run "
-       [:b "lein figwheel"]
-       " in order to start the compiler"]])
+  [:div#app.container
+      [:h3 "Loading Competition Tour..."]
+      [:p "If this message doesn't disappear, please enable JavaScript in your browser."]])
 
 (defn head []
   [:head
@@ -19,7 +17,7 @@
            :content "width=device-width, initial-scale=1"}]
    (include-css
      (if (env :dev) "/css/site.css" "/css/site.min.css")
-     (if (env :dev) "/bootstrap-3.3.6/css/bootstrap.min.css" "/bootstrap-3.3.6/css/bootstrap.css"))
+     (if (env :dev) "/bootstrap-3.3.6/css/bootstrap.css" "/bootstrap-3.3.6/css/bootstrap.min.css"))
    ])
 
 (def loading-page
@@ -29,7 +27,7 @@
      mount-target
      (include-js "/js/app.js")
      (include-js
-       (if (env :dev) "/bootstrap-3.3.6/js/bootstrap.min.js" "/bootstrap-3.3.6/js/bootstrap.js"))
+       (if (env :dev) "/bootstrap-3.3.6/js/bootstrap.js" "/bootstrap-3.3.6/js/bootstrap.min.js"))
      ]))
 
 
