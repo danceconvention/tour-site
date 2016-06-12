@@ -1,7 +1,12 @@
 (ns tour-site.search
-  (:require [reagent.core :as reagent :refer [atom]]
+  (:require[secretary.core :as secretary :include-macros true]
+           [accountant.core :as accountant]
+           [reagent.core :as reagent :refer [atom]]
             [reagent-forms.core :refer [bind-fields init-field value-of]]
             [tour-site.appdb :refer [tourinfo-data]]))
+
+(defn- navigate-to [userid]
+  (accountant/navigate! (str "/dancerinfo/" userid)))
 
 (defn user-lookup [text]
   (filter #(-> (:fullName %) (.toLowerCase %) (.indexOf text) (> -1))
@@ -17,7 +22,7 @@
               :input-placeholder "enter first or last name"
               :data-source       user-lookup
               :result-fn         #(:fullName %)
-              :choice-fn         (fn [value] (.log js/console "selected userid =" (:userId value)) (:fullName value))
+              :choice-fn         #(navigate-to (:userId %))
               :input-class       "input-lg form-control"
               :list-class        "typeahead-list"
               :item-class        "typeahead-item"

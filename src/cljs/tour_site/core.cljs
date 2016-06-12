@@ -25,12 +25,13 @@
       ]
      [:div#navbar.navbar-collapse.collapse
       [:ul.nav.navbar-nav.navbar-right
-       [:li [:a {:href "/"} [:strong "Raw Connection Competition Tour"]]]]]]]
+       [:li [:a.navbar-brand {:href "/"} [:strong "Raw Connection Competition Tour"]]]]]]]
    [:div.container
     [:div
      [:a.thumbnail {:href "/"} [:img {:src "/img/rawcontour.jpg" :border 0}]]]
     [:div.row
-     [:div.col-md-12 contents]]]
+     [:div.col-md-12 contents]]
+    [:footer {:style {:margin-top "40px"}} [:p [:small "Powered by danceConvention.net (c) 2013-2016 Ilya Obshadko"]]]]
   ]
 )
 
