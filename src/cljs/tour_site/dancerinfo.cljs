@@ -1,11 +1,13 @@
 (ns tour-site.dancerinfo
   (:require [tour-site.appdb :as appdb]
+            [goog.string :as gstring]
             [tour-site.points :refer [calculate-points]]))
 
 (defn dancer-info [userid]
   (let [records (filter #(= userid (% :participantId)) (appdb/tourinfo-data 10))]
     [:div
-      [:h2 (:firstName (first records)) " " (:lastName (first records))]
+
+      [:h2 [:small [:a {:href "/"} "Competition Tour"] (gstring/unescapeEntities "&nbsp; / &nbsp;")]  (:firstName (first records)) " " (:lastName (first records))]
       [:table.table.table-striped.lead {:style {:margin-top "40px"}}
        [:thead
         [:tr
