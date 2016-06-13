@@ -25,7 +25,7 @@
      [:div.navbar-header
       [:a.navbar-brand {:href "https://danceconvention.net/"}
        [:nobr
-       [:img {:src "/img/dcnet_logo_header.png" :border 0}]
+       [:img {:src "/img/dcnet_logo_header.png" :border "0" :alt "danceConvention.net"}]
        (gstring/unescapeEntities "&nbsp;")
        [:strong "danceConvention.net"]]]
       ]
@@ -34,7 +34,7 @@
        [:li [:a.navbar-brand {:href "/"} [:strong "Raw Connection Competition Tour"]]]]]]]
    [:div.container
     [:div.row
-     [:div.col-md-6 [:a.thumbnail {:href "/"} [:img {:src "/img/rawcontour.jpg" :border 0}]]]
+     [:div.col-md-6 [:a.thumbnail {:href "/"} [:img {:src "/img/rawcontour.jpg" :border "0" :alt "Raw Connection Competition Tour"}]]]
      [:div.col-md-6 [tour-info]]]
     [:div.row
      [:div.col-md-12 contents]]

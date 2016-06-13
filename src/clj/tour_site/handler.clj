@@ -12,9 +12,13 @@
 
 (defn head []
   [:head
+   [:title "Raw Connection Competition Tour"]
    [:meta {:charset "utf-8"}]
-   [:meta {:name "viewport"
-           :content "width=device-width, initial-scale=1"}]
+   [:meta {:name "viewport"       :content "width=device-width, initial-scale=1"}]
+   [:meta {:name "og:url"         :content "http://rawconnection-tour.danceconvention.net/"}]
+   [:meta {:name "og:title"       :content "Raw Connection Competition Tour"}]
+   [:meta {:name "og:description" :content "The Raw Con Comp Tour is designed to encourage and reward dancers of all levels to compete at Raw Con Events"}]
+   [:meta {:name "og:image"       :content "http://rawconnection-tour.danceconvention.net/img/rawcontour.jpg"}]
    (include-css
      (if (env :dev) "/css/site.css" "/css/site.min.css")
      (if (env :dev) "/bootstrap-3.3.6/css/bootstrap.css" "/bootstrap-3.3.6/css/bootstrap.min.css"))
